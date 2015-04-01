@@ -47,7 +47,7 @@ function ispalindrome2(l::Array{Int,1})
   return true
 end
 
-ispalindrome(n::Int) = ispalindrom(digits(n))
+ispalindrome(n::Int) = ispalindrome(digits(n))
 
 function contains(a::Array{Int,1},b::Array{Int,1})
   la = length(a)
