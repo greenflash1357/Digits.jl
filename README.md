@@ -17,7 +17,7 @@ using Digits
 ### Function Overview
 
 ##### reversedigits(n)
-Returns the digits of n in reversed order, i.e. reversedigits == reverse!(digits(n))
+Returns the digits of n in reversed order, i.e. reversedigits(n) == reverse!(digits(n))
 
 ##### undigit(A)
 The reverse function to julias digits(). Accepting a 1-dimensional integer array where more significant digits are at higher indexes, according to digits().

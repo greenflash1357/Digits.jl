@@ -10,6 +10,7 @@ lp = digits(p)
 
 # undigit
 @test undigit(l) == n
+@test undigit(n) == n
 
 # digithist
 @test digithist(l) == [1,1,1,1,1,1,1,1,1,1]
@@ -22,9 +23,9 @@ lp = digits(p)
 @test isanagram(122334,433232) == false
 
 # ispalindrom
-@test ispalindrom(p) == true
-@test ispalindrom(lp) == true
-@test ispalindrom(n) == false
+@test ispalindrome(p) == true
+@test ispalindrome(lp) == true
+@test ispalindrome(n) == false
 
 # contains
 @test contains(n,3456) == true

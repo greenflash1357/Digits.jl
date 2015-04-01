@@ -17,6 +17,8 @@ function undigit(l::Array{Int,1})
   return foldr((a,b)->b*10+a,l)
 end
 
+undigit(n::Int) = n
+
 function digithist(l::Array{Int,1})
   return hist(l,-0.5:10)[2]
 end
@@ -30,12 +32,12 @@ end
 isanagram(a::Int, b::Int) = isanagram(digits(a),digits(b))
 #TODO: add wrapper for type mixed inputs: int,Array  Array,int
 
-function ispalindrom(l::Array{Int,1})
+function ispalindrome(l::Array{Int,1})
   return l == reverse(l)
   #TODO: possible performance improvement: loop only over half the list
 end
 
-function ispalindrom2(l::Array{Int,1})
+function ispalindrome2(l::Array{Int,1})
   m = div(length(l),2)
   for i = 1:m
     if l[i] != l[end-i+1]
@@ -45,7 +47,7 @@ function ispalindrom2(l::Array{Int,1})
   return true
 end
 
-ispalindrom(n::Int) = ispalindrom(digits(n))
+ispalindrome(n::Int) = ispalindrom(digits(n))
 
 function contains(a::Array{Int,1},b::Array{Int,1})
   la = length(a)
