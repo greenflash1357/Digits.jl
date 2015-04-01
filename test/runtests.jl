@@ -32,3 +32,17 @@ lp = digits(p)
 @test contains(n,digits(123)) == true
 @test contains(l,digits(789)) == true
 @test contains(n,457) == false
+
+# startswith
+@test startswith(n,123) == true
+@test startswith(l,1234) == true
+@test startswith(l,digits(12)) == true
+@test startswith(n,digits(1)) == true
+@test startswith(n,2345) == false
+
+# endswith
+@test endswith(n,7890) == true
+@test endswith(l,90) == true
+@test endswith(l,digits(90)) == true
+@test endswith(n,digits(567890)) == true
+@test endswith(n,45678) == false
