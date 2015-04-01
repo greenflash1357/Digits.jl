@@ -6,7 +6,7 @@ A package for integer digit computations.
 
 Based on julias digits() function.
 
-### Installation / Tesing
+### Installation / Testing
 
 You can test the package by typing:
 ```julia
