@@ -5,7 +5,7 @@ export
   undigit,
   digithist,
   isanagram,
-  ispalindrom,
+  ispalindrome,
   contains,
   startswith,
   endswith
