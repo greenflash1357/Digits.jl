@@ -35,6 +35,6 @@ Checks wether a or b is the first/last part of the other, e.g. startswith(1356,1
 Returns true if a and b are valid permutations of their digits.
 
 ##### ispalindrome(n)
-Returns true n is a palindromic number.
+Returns true if n is a palindromic number.
 
 Note: Most functions accept an array of digits aswell as the number.
