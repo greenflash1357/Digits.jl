@@ -8,13 +8,14 @@ export
   ispalindrome,
   contains,
   startswith,
-  endswith
+  endswith,
+  crop
 
 
 reversedigits(n::Int) = reverse!(digits(n))
 
 function undigit(l::Array{Int,1})
-  return foldr((a,b)->b*10+a,l)
+  return foldr((a,b)->b*10+a,0,l)
 end
 
 undigit(n::Int) = n
@@ -26,6 +27,7 @@ end
 digithist(n::Int) = digithist(digits(n))
 
 function isanagram(a::Array{Int,1}, b::Array{Int,1})
+  #TODO: maybe a length check l1 == l2 would improve performance on average
   return digithist(a) == digithist(b)
 end
 
@@ -117,6 +119,22 @@ end
 startswith(a::Array{Int,1},b::Int) = startswith(a,digits(b))
 startswith(a::Int,b::Array{Int,1}) = startswith(digits(a),b)
 startswith(a::Int,b::Int) = startswith(digits(a),digits(b))
+
+function crop(l::Array{Int,1},i::Int)
+  if abs(i) > length(l)
+    error("Crop value too big!")
+  elseif abs(i) == length(l)
+    return [0]
+  elseif i == 0
+    return l
+  elseif i > 0
+    return l[1:end-i]
+  else i < 0
+    return l[1+abs(i):end]
+  end
+end
+
+crop(n::Int,i::Int) = undigit(crop(digits(n),i))
 
 
 
