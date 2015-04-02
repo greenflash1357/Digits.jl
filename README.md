@@ -37,4 +37,7 @@ Returns true if a and b are valid permutations of their digits.
 ##### ispalindrome(n)
 Returns true if n is a palindromic number.
 
+##### crop(n,i)
+Cuts off i digits from n. If i is positive the first (most significant) digits are cropped. If i is negative the last digits are cut off.
+
 Note: Most functions accept an array of digits aswell as the number.
