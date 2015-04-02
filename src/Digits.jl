@@ -9,7 +9,9 @@ export
   contains,
   startswith,
   endswith,
-  crop
+  crop,
+  combine,
+  crosssum
 
 
 reversedigits(n::Int) = reverse!(digits(n))
@@ -32,11 +34,11 @@ function isanagram(a::Array{Int,1}, b::Array{Int,1})
 end
 
 isanagram(a::Int, b::Int) = isanagram(digits(a),digits(b))
-#TODO: add wrapper for type mixed inputs: int,Array  Array,int
+#TODO: add wrapper for type mixed inputs: int,Array  Array,int?
 
 function ispalindrome(l::Array{Int,1})
   return l == reverse(l)
-  #TODO: possible performance improvement: loop only over half the list
+  #TODO: possible performance improvement: loop only over half the list => ispalindrome2
 end
 
 function ispalindrome2(l::Array{Int,1})
@@ -135,6 +137,19 @@ function crop(l::Array{Int,1},i::Int)
 end
 
 crop(n::Int,i::Int) = undigit(crop(digits(n),i))
+
+function combine(a::Int,b::Int)
+  #TODO: shortcut if a == 0 might be an improvement
+  f = 10^ndigits(b)
+  return a*f+b
+end
+
+combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
+#TODO: add wrappers for type mixed input?
+
+crosssum(l::Array{Int,1}) = sum(l)
+
+crosssum(n::Int) = sum(digits(n))
 
 
 

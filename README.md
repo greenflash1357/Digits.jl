@@ -40,4 +40,10 @@ Returns true if n is a palindromic number.
 ##### crop(n,i)
 Cuts off i digits from n. If i is positive the first (most significant) digits are cropped. If i is negative the last digits are cut off.
 
+##### combine(a,b)
+Return the combination of a and b, similar to a string concatenation, e.g. combine(13,56) -> 1356.
+
+##### crosssum(n)
+Calculates the cross sum over n.
+
 Note: Most functions accept an array of digits aswell as the number.
