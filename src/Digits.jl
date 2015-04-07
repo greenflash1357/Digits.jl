@@ -29,19 +29,16 @@ end
 digithist(n::Int) = digithist(digits(n))
 
 function isanagram(a::Array{Int,1}, b::Array{Int,1})
-  #TODO: maybe a length check l1 == l2 would improve performance on average
-  return digithist(a) == digithist(b)
+  if length(a) == length(b)
+    return digithist(a) == digithist(b)
+  end
+  return false
 end
 
 isanagram(a::Int, b::Int) = isanagram(digits(a),digits(b))
-#TODO: add wrapper for type mixed inputs: int,Array  Array,int?
+
 
 function ispalindrome(l::Array{Int,1})
-  return l == reverse(l)
-  #TODO: possible performance improvement: loop only over half the list => ispalindrome2
-end
-
-function ispalindrome2(l::Array{Int,1})
   m = div(length(l),2)
   for i = 1:m
     if l[i] != l[end-i+1]
@@ -139,18 +136,18 @@ end
 crop(n::Int,i::Int) = undigit(crop(digits(n),i))
 
 function combine(a::Int,b::Int)
-  #TODO: shortcut if a == 0 might be an improvement
+  if a == 0
+    return b
+  end
   f = 10^ndigits(b)
   return a*f+b
 end
 
 combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
-#TODO: add wrappers for type mixed input?
 
 crosssum(l::Array{Int,1}) = sum(l)
 
 crosssum(n::Int) = sum(digits(n))
-
 
 
 end # module
