@@ -1,6 +1,7 @@
 # Digits
 
 [![Build Status](https://travis-ci.org/greenflash1357/Digits.jl.svg?branch=master)](https://travis-ci.org/greenflash1357/Digits.jl)
+[![Coverage Status](https://coveralls.io/repos/greenflash1357/Digits.jl/badge.svg)](https://coveralls.io/r/greenflash1357/Digits.jl)
 
 A package for integer digit computations.
 
