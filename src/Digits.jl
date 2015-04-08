@@ -135,6 +135,8 @@ end
 
 crop(n::Int,i::Int) = undigit(crop(digits(n),i))
 
+#TODO: add a 'cut-out' function that accepts a range as removal part.
+
 function combine(a::Int,b::Int)
   if a == 0
     return b

@@ -1,6 +1,7 @@
 using Digits
 using Base.Test
 
+#TODO: add error test cases
 
 # test data
 n = 1234567890
@@ -70,7 +71,7 @@ lp = digits(p)
 @test combine(digits(234),digits(46)) == digits(23446)
 @test combine(l,[0]) == digits(12345678900)
 # how to handle leading zeros?
-# @test combine([0],l) == l
+# @test combine([0],l) == [0,l]
 @test combine(Int[],l) == l
 @test combine(l,Int[]) == l
 
