@@ -52,13 +52,13 @@ lp = digits(p)
 @test Digits.startswith(n,2345) == false
 
 # endswith
-@test endswith(n,n) == true
-@test endswith(n,7890) == true
-@test endswith(90,n) == true
-@test endswith(l,90) == true
-@test endswith(l,digits(90)) == true
-@test endswith(n,digits(567890)) == true
-@test endswith(n,45678) == false
+@test Digits.endswith(n,n) == true
+@test Digits.endswith(n,7890) == true
+@test Digits.endswith(90,n) == true
+@test Digits.endswith(l,90) == true
+@test Digits.endswith(l,digits(90)) == true
+@test Digits.endswith(n,digits(567890)) == true
+@test Digits.endswith(n,45678) == false
 
 # crop
 @test crop(n,3) == 4567890
