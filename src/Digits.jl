@@ -11,7 +11,10 @@ export
   endswith,
   crop,
   combine,
-  crosssum
+  crosssum,
+  select,
+  replace,
+  replace!
 
 
 reversedigits(n::Int) = reverse!(digits(n))
@@ -135,7 +138,34 @@ end
 
 crop(n::Int,i::Int) = undigit(crop(digits(n),i))
 
-#TODO: add a 'cut-out' function that accepts a range as removal part.
+function replace!(l::Array{Int,1},idx::AbstractArray{Int,1},d::Array{Int,1})
+  l[idx] = d
+  return l
+end
+
+function replace!(l::Array{Int,1},old::Int,new::Int)
+  l[l.==old] = new
+  return l
+end
+
+replace(l::Array{Int,1},idx::AbstractArray{Int,1},d::Array{Int,1}) = replace!(deepcopy(l),idx,d)
+replace(l::Array{Int,1},old::Int,new::Int) = replace!(deepcopy(l),old,new)
+
+function replace(n::Int,idx::AbstractArray{Int,1},d::Array{Int,1})
+  return undigit(reverse(replace(reverse(digits(n)),idx,d)))
+end
+
+function replace(n::Int,old::Int,new::Int)
+  return undigit(replace(digits(n),old,new));
+end
+
+function select(l::Array{Int,1},idx::AbstractArray{Int,1})
+  return l[idx]
+end
+
+function select(n::Int,idx::AbstractArray{Int,1})
+  return undigit(reverse(reverse(digits(n))[idx]))
+end
 
 function combine(a::Int,b::Int)
   if a == 0
@@ -148,7 +178,6 @@ end
 combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
 
 crosssum(l::Array{Int,1}) = sum(l)
-
 crosssum(n::Int) = sum(digits(n))
 
 
