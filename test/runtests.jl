@@ -89,10 +89,10 @@ lp = digits(p)
 @test crosssum([0]) == 0
 
 # select
-@test select(n,1:3) == 123
-@test select(l,1:3) == [0,9,8]
-@test select(n,[2,4]) == 24
-@test select(l,[6,9]) == [5,2]
+@test Digits.select(n,1:3) == 123
+@test Digits.select(l,1:3) == [0,9,8]
+@test Digits.select(n,[2,4]) == 24
+@test Digits.select(l,[6,9]) == [5,2]
 
 # replace and replace!
 @test replace(n,[1],[9]) == 9234567890
