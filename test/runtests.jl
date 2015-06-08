@@ -34,22 +34,22 @@ lp = digits(p)
 @test ispalindrome(n) == false
 
 # contains
-@test contains(n,n) == true
-@test contains(n,3456) == true
-@test contains(56,n) == true
-@test contains(l,567) == true
-@test contains(n,digits(123)) == true
-@test contains(l,digits(789)) == true
-@test contains(n,457) == false
+@test Digits.contains(n,n) == true
+@test Digits.contains(n,3456) == true
+@test Digits.contains(56,n) == true
+@test Digits.contains(l,567) == true
+@test Digits.contains(n,digits(123)) == true
+@test Digits.contains(l,digits(789)) == true
+@test Digits.contains(n,457) == false
 
 # startswith
-@test startswith(n,n) == true
-@test startswith(n,123) == true
-@test startswith(12,n) == true
-@test startswith(l,1234) == true
-@test startswith(l,digits(12)) == true
-@test startswith(n,digits(1)) == true
-@test startswith(n,2345) == false
+@test Digits.startswith(n,n) == true
+@test Digits.Digits.startswith(n,123) == true
+@test Digits.startswith(12,n) == true
+@test Digits.startswith(l,1234) == true
+@test Digits.startswith(l,digits(12)) == true
+@test Digits.startswith(n,digits(1)) == true
+@test Digits.startswith(n,2345) == false
 
 # endswith
 @test endswith(n,n) == true
