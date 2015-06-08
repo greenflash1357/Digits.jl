@@ -89,24 +89,24 @@ lp = digits(p)
 @test crosssum([0]) == 0
 
 # select
-@test select(n,1:3) == 123
-@test select(l,1:3) == [0,9,8]
-@test select(n,[2,4]) == 24
-@test select(l,[6,9]) == [5,2]
+@test Digits.select(n,1:3) == 123
+@test Digits.select(l,1:3) == [0,9,8]
+@test Digits.select(n,[2,4]) == 24
+@test Digits.select(l,[6,9]) == [5,2]
 
 # replace and replace!
-@test replace(n,[1],[9]) == 9234567890
-@test replace(n,[3,7],[8,4]) == 1284564890
-@test replace(n,5,1) == 1234167890
-@test replace(n,[5:7],[1,2,3]) == 1234123890
-@test replace(l,[3],[0]) == digits(1234567090)
-@test replace(l,[9,1],[3,2]) == digits(1334567892)
-@test replace(l,0,1) == digits(1234567891)
-@test replace(l,[1:10],digits(9977553311)) == digits(9977553311)
+@test Digits.replace(n,[1],[9]) == 9234567890
+@test Digits.replace(n,[3,7],[8,4]) == 1284564890
+@test Digits.replace(n,5,1) == 1234167890
+@test Digits.replace(n,[5:7],[1,2,3]) == 1234123890
+@test Digits.replace(l,[3],[0]) == digits(1234567090)
+@test Digits.replace(l,[9,1],[3,2]) == digits(1334567892)
+@test Digits.replace(l,0,1) == digits(1234567891)
+@test Digits.replace(l,[1:10],digits(9977553311)) == digits(9977553311)
 ll = deepcopy(l)
-replace!(ll,[2:3],[0,0])
+Digits.replace!(ll,[2:3],[0,0])
 @test ll == digits(1234567000)
-replace!(ll,[9,8],[3,0])
+Digits.replace!(ll,[9,8],[3,0])
 @test ll == digits(1304567000)
-replace!(ll,0,9)
+Digits.replace!(ll,0,9)
 @test ll == digits(1394567999)
