@@ -11,6 +11,11 @@ Based on julias digits() function.
 
 You can test the package by typing:
 ```julia
+Pkg.add("Digits")
+using Digits
+```
+or clone the latest version directly from the repo:
+```julia
 Pkg.clone("https://github.com/greenflash1357/Digits.jl.git")
 using Digits
 ```
