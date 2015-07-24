@@ -9,7 +9,7 @@ Based on julias digits() function.
 
 ### Installation / Testing
 
-You can test the package by typing:
+You can install the package by typing:
 ```julia
 Pkg.add("Digits")
 using Digits

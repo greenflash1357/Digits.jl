@@ -17,13 +17,15 @@ export
   replace!
 
 
-reversedigits(n::Int) = reverse!(digits(n))
-
 function undigit(l::Array{Int,1})
   return foldr((a,b)->b*10+a,0,l)
 end
 
 undigit(n::Int) = n
+
+reversedigits(n::Int) = undigit(reverse!(digits(n)))
+
+reversedigits(l::Array{Int,1}) = reverse!(l)
 
 function digithist(l::Array{Int,1})
   return hist(l,-0.5:10)[2]
