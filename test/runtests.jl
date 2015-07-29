@@ -8,9 +8,12 @@ p = 1234567890987654321
 l = digits(n)
 lp = digits(p)
 
-# reversedigits
-@test reversedigits(n) == reverse!(digits(n))
-@test reversedigits(p) == digits(p)
+# reversedigits and reversedigits!
+@test reversedigits(n) == 987654321
+@test reversedigits(p) == p
+@test reversedigits(l) == reverse(l)
+@test reversedigits(lp) == lp
+@test reversedigits!(reversedigits!(l)) == digits(n)
 
 # undigit
 @test undigit(l) == n

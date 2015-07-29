@@ -22,8 +22,8 @@ using Digits
 
 ### Function Overview
 
-##### reversedigits(n)
-Returns the digits of n in reversed order, i.e. reversedigits(n) == reverse!(digits(n))
+##### reversedigits(n)/reversedigits!(l)
+Returns the digits of n in reversed order, i.e. reversedigits(n) == undigit(reverse!(digits(n))). For a list of digits this is equivalent to reverse and reverse!.
 
 ##### undigit(A)
 The inverse function to julias digits(). Accepting a 1-dimensional integer array where more significant digits are at higher indexes, according to digits().
