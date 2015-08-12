@@ -1,6 +1,7 @@
 # Digits
 
 [![Build Status](https://travis-ci.org/greenflash1357/Digits.jl.svg?branch=master)](https://travis-ci.org/greenflash1357/Digits.jl)
+[![Digits](http://pkg.julialang.org/badges/Digits_0.3.svg)](http://pkg.julialang.org/?pkg=Digits&ver=release)
 [![Coverage Status](https://coveralls.io/repos/greenflash1357/Digits.jl/badge.svg)](https://coveralls.io/r/greenflash1357/Digits.jl)
 
 A package for integer digit computations.
@@ -68,4 +69,4 @@ Example: replace(1363,3,9) -> 1969
 ### Notes
 - Most functions accept an array of digits aswell as an integer as input.
 - For most of the array methods there exists an inplace operation.
-- This package should also work for negative integers, but this can become tricky. Take a closer look at the digit representation of negative integers. 'digits(-135)' -> '[-5, -3, -1]'.
+- This package should also work for negative integers, but this can become tricky. Take a closer look at the digit representation of negative integers. `digits(-135)` -> `[-5, -3, -1]`.
