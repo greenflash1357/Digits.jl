@@ -113,3 +113,8 @@ Digits.replace!(ll,[9,8],[3,0])
 @test ll == digits(1304567000)
 Digits.replace!(ll,0,9)
 @test ll == digits(1394567999)
+
+# digitroot
+@test digitroot(n) == 9
+@test digitroot(l) == 9
+@test digitroot(0) == 0

@@ -15,7 +15,8 @@ export
   crosssum,
   select,
   replace,
-  replace!
+  replace!,
+  digitroot
 
 
 function undigit(l::Array{Int,1})
@@ -184,6 +185,14 @@ combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
 
 crosssum(l::Array{Int,1}) = sum(l)
 crosssum(n::Int) = sum(digits(n))
+
+function digitroot(n::Int)
+  x = abs(n)
+  r = x-9*div(x-1,9)
+  return copysign(r,n)
+end
+
+digitroot(l::Array{Int,1}) = digitroot(undigit(l))
 
 
 end # module

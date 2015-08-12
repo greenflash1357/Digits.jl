@@ -65,4 +65,7 @@ Replaces the all digits of n with value olddigit with newdigit. There is also an
 Example: replace(1363,3,9) -> 1969
 
 
-Note: Most functions accept an array of digits aswell as the number.
+### Notes
+- Most functions accept an array of digits aswell as an integer as input.
+- For most of the array methods there exists an inplace operation.
+- This package should also work for negative integers, but this can become tricky. Take a closer look at the digit representation of negative integers. 'digits(-135)' -> '[-5, -3, -1]'.
