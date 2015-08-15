@@ -19,8 +19,12 @@ export
   digitroot
 
 
-function undigit(l::Array{Int,1})
-  return foldr((a,b)->b*10+a,0,l)
+function undigit(l::Vector{Int}, base::Int = 10)
+  acc = 0
+  for (i, digit) in enumerate(l)
+    acc += digit * base ^ (i-1)
+  end
+  acc::Int
 end
 
 undigit(n::Int) = n
