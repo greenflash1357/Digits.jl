@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/greenflash1357/Digits.jl.svg?branch=master)](https://travis-ci.org/greenflash1357/Digits.jl)
 [![Digits](http://pkg.julialang.org/badges/Digits_0.3.svg)](http://pkg.julialang.org/?pkg=Digits&ver=release)
-[![Coverage Status](https://coveralls.io/repos/greenflash1357/Digits.jl/badge.svg)](https://coveralls.io/r/greenflash1357/Digits.jl)
+[![Coverage Status](https://coveralls.io/repos/greenflash1357/Digits.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/greenflash1357/Digits.jl?branch=master)
 
 A package for integer digit computations.
 
@@ -26,8 +26,8 @@ using Digits
 ##### reversedigits(n)/reversedigits!(l)
 Returns the digits of n in reversed order, i.e. reversedigits(n) == undigit(reverse!(digits(n))). For a list of digits this is equivalent to reverse and reverse!.
 
-##### undigit(A)
-The inverse function to julias digits(). Accepting a 1-dimensional integer array where more significant digits are at higher indexes, according to digits().
+##### undigit(A [, base])
+The inverse function to julias digits(). Accepting a vector of integers where more significant digits are at higher indexes, according to digits() and a base. Default is 10.
 
 ##### digithist(n)
 Creates a digit histogram for a given number. The result is a 1-dimensional 10-element array containing the count of each digit. The first element contains the count of 0, while the last represents the count of 9.
