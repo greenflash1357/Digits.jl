@@ -36,19 +36,21 @@ reversedigits(l::Array{Int,1}) = reverse(l)
 reversedigits!(l::Array{Int,1}) = reverse!(l)
 
 function digithist(l::Array{Int,1})
-  return hist(l,-0.5:10)[2]
+  return hist(abs(l),-0.5:10)[2]
 end
 
 digithist(n::Int) = digithist(digits(n))
 
 function isanagram(a::Array{Int,1}, b::Array{Int,1})
-  if length(a) == length(b)
-    return digithist(a) == digithist(b)
+  if sign(a) != sign(b)
+    return false
   end
-  return false
+  return digithist(a) == digithist(b)
 end
 
 isanagram(a::Int, b::Int) = isanagram(digits(a),digits(b))
+isanagram(a::Int, b::Vector{Int}) = isanagram(digits(a),b)
+isanagram(a::Vector{Int}, b::Int) = isanagram(a,digits(b))
 
 
 function ispalindrome(l::Array{Int,1})
@@ -186,6 +188,8 @@ function combine(a::Int,b::Int)
 end
 
 combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
+combine(a::Int,b::Vector{Int}) = combine(a,undigit(b))
+combine(a::Vector{Int},b::Int) = combine(a,digits(b))
 
 crosssum(l::Array{Int,1}) = sum(l)
 crosssum(n::Int) = sum(digits(n))

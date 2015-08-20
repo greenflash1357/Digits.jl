@@ -30,6 +30,10 @@ lp = digits(p)
 @test isanagram(digits(122334),digits(431232)) == true
 @test isanagram(122334,433232) == false
 @test isanagram(135,61436) == false
+@test isanagram(-135,153) == false
+@test isanagram(-532,-253) == true
+@test isanagram(135, digits(513)) == true
+@test isanagram(digits(3613),1633) == true
 
 # ispalindrom
 @test ispalindrome(p) == true
@@ -47,7 +51,7 @@ lp = digits(p)
 
 # startswith
 @test Digits.startswith(n,n) == true
-@test Digits.Digits.startswith(n,123) == true
+@test Digits.startswith(n,123) == true
 @test Digits.startswith(12,n) == true
 @test Digits.startswith(l,1234) == true
 @test Digits.startswith(l,digits(12)) == true
@@ -83,6 +87,8 @@ lp = digits(p)
 @test combine([0],l) == [l,0]
 @test combine(Int[],l) == l
 @test combine(l,Int[]) == l
+@test combine(13,digits(35)) == 1335
+@test combine(digits(753),12) == digits(75312)
 
 # crosssum
 @test crosssum(n) == 45
