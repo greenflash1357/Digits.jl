@@ -187,7 +187,7 @@ function combine(a::Int,b::Int)
   return a*f+b
 end
 
-combine(a::Array{Int,1},b::Array{Int,1}) = [b,a]
+combine(a::Array{Int,1},b::Array{Int,1}) = [b;a]
 combine(a::Int,b::Vector{Int}) = combine(a,undigit(b))
 combine(a::Vector{Int},b::Int) = combine(a,digits(b))
 

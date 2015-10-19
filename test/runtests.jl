@@ -84,7 +84,7 @@ lp = digits(p)
 @test combine(976,23) == 97623
 @test combine(digits(234),digits(46)) == digits(23446)
 @test combine(l,[0]) == digits(12345678900)
-@test combine([0],l) == [l,0]
+@test combine([0],l) == [l;0]
 @test combine(Int[],l) == l
 @test combine(l,Int[]) == l
 @test combine(13,digits(35)) == 1335
@@ -111,7 +111,7 @@ lp = digits(p)
 @test Digits.replace(l,[3],[0]) == digits(1234567090)
 @test Digits.replace(l,[9,1],[3,2]) == digits(1334567892)
 @test Digits.replace(l,0,1) == digits(1234567891)
-@test Digits.replace(l,[1:10],digits(9977553311)) == digits(9977553311)
+@test Digits.replace(l,collect(1:10),digits(9977553311)) == digits(9977553311)
 ll = deepcopy(l)
 Digits.replace!(ll,[2:3],[0,0])
 @test ll == digits(1234567000)
