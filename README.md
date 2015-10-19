@@ -2,7 +2,9 @@
 
 [![Build Status: Travis CI](https://travis-ci.org/greenflash1357/Digits.jl.svg?branch=master)](https://travis-ci.org/greenflash1357/Digits.jl)
 [![Build status: Appveyor](https://ci.appveyor.com/api/projects/status/gvomfrq6v71pyt0d?svg=true)](https://ci.appveyor.com/project/greenflash1357/digits-jl)
-[![Digits Pkg Test](http://pkg.julialang.org/badges/Digits_0.3.svg)](http://pkg.julialang.org/?pkg=Digits&ver=release)
+[![Digits Pkg Test](http://pkg.julialang.org/badges/Digits_0.3.svg)](http://pkg.julialang.org/?pkg=Digits&ver=0.3)
+[![Digits Pkg Test](http://pkg.julialang.org/badges/Digits_0.4.svg)](http://pkg.julialang.org/?pkg=Digits&ver=release)
+[![Digits Pkg Test](http://pkg.julialang.org/badges/Digits_0.5.svg)](http://pkg.julialang.org/?pkg=Digits&ver=latest)
 [![Coverage Status](https://coveralls.io/repos/greenflash1357/Digits.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/greenflash1357/Digits.jl?branch=master)
 
 A package for integer digit computations.
