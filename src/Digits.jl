@@ -24,12 +24,12 @@ function undigit(l::Vector{Int}, base::Int = 10)
   for (i, digit) in enumerate(l)
     acc += digit * base ^ (i-1)
   end
-  acc::Int
+  acc::Integer
 end
 
-undigit(n::Int) = n
+undigit(n::Integer) = n
 
-reversedigits(n::Int) = undigit(reverse!(digits(n)))
+reversedigits(n::Integer) = undigit(reverse!(digits(n)))
 
 reversedigits(l::Array{Int,1}) = reverse(l)
 
@@ -39,7 +39,7 @@ function digithist(l::Array{Int,1})
   return hist(abs(l),-0.5:10)[2]
 end
 
-digithist(n::Int) = digithist(digits(n))
+digithist(n::Integer) = digithist(digits(n))
 
 function isanagram(a::Array{Int,1}, b::Array{Int,1})
   if sign(a) != sign(b)
@@ -48,9 +48,9 @@ function isanagram(a::Array{Int,1}, b::Array{Int,1})
   return digithist(a) == digithist(b)
 end
 
-isanagram(a::Int, b::Int) = isanagram(digits(a),digits(b))
-isanagram(a::Int, b::Vector{Int}) = isanagram(digits(a),b)
-isanagram(a::Vector{Int}, b::Int) = isanagram(a,digits(b))
+isanagram(a::Integer, b::Integer) = isanagram(digits(a),digits(b))
+isanagram(a::Integer, b::Vector{Int}) = isanagram(digits(a),b)
+isanagram(a::Vector{Int}, b::Integer) = isanagram(a,digits(b))
 
 
 function ispalindrome(l::Array{Int,1})
@@ -63,7 +63,7 @@ function ispalindrome(l::Array{Int,1})
   return true
 end
 
-ispalindrome(n::Int) = ispalindrome(digits(n))
+ispalindrome(n::Integer) = ispalindrome(digits(n))
 
 function contains(a::Array{Int,1},b::Array{Int,1})
   la = length(a)
@@ -86,9 +86,9 @@ function contains(a::Array{Int,1},b::Array{Int,1})
   return false
 end
 
-contains(a::Array{Int,1},b::Int) = contains(a,digits(b))
-contains(a::Int,b::Array{Int,1}) = contains(digits(a),b)
-contains(a::Int,b::Int) = contains(digits(a),digits(b))
+contains(a::Array{Int,1},b::Integer) = contains(a,digits(b))
+contains(a::Integer,b::Array{Int,1}) = contains(digits(a),b)
+contains(a::Integer,b::Integer) = contains(digits(a),digits(b))
 
 function endswith(a::Array{Int,1},b::Array{Int,1})
   if a == b
@@ -108,9 +108,9 @@ function endswith(a::Array{Int,1},b::Array{Int,1})
   return false
 end
 
-endswith(a::Array{Int,1},b::Int) = endswith(a,digits(b))
-endswith(a::Int,b::Array{Int,1}) = endswith(digits(a),b)
-endswith(a::Int,b::Int) = endswith(digits(a),digits(b))
+endswith(a::Array{Int,1},b::Integer) = endswith(a,digits(b))
+endswith(a::Integer,b::Array{Int,1}) = endswith(digits(a),b)
+endswith(a::Integer,b::Integer) = endswith(digits(a),digits(b))
 
 function startswith(a::Array{Int,1},b::Array{Int,1})
   if a == b
@@ -130,9 +130,9 @@ function startswith(a::Array{Int,1},b::Array{Int,1})
   return false
 end
 
-startswith(a::Array{Int,1},b::Int) = startswith(a,digits(b))
-startswith(a::Int,b::Array{Int,1}) = startswith(digits(a),b)
-startswith(a::Int,b::Int) = startswith(digits(a),digits(b))
+startswith(a::Array{Int,1},b::Integer) = startswith(a,digits(b))
+startswith(a::Integer,b::Array{Int,1}) = startswith(digits(a),b)
+startswith(a::Integer,b::Integer) = startswith(digits(a),digits(b))
 
 function crop(l::Array{Int,1},i::Int)
   if abs(i) > length(l)
@@ -148,7 +148,7 @@ function crop(l::Array{Int,1},i::Int)
   end
 end
 
-crop(n::Int,i::Int) = undigit(crop(digits(n),i))
+crop(n::Integer,i::Int) = undigit(crop(digits(n),i))
 
 function replace!(l::Array{Int,1},idx::AbstractArray{Int,1},d::Array{Int,1})
   l[idx] = d
@@ -163,11 +163,11 @@ end
 replace(l::Array{Int,1},idx::AbstractArray{Int,1},d::Array{Int,1}) = replace!(deepcopy(l),idx,d)
 replace(l::Array{Int,1},old::Int,new::Int) = replace!(deepcopy(l),old,new)
 
-function replace(n::Int,idx::AbstractArray{Int,1},d::Array{Int,1})
+function replace(n::Integer,idx::AbstractArray{Int,1},d::Array{Int,1})
   return undigit(reverse(replace(reverse(digits(n)),idx,d)))
 end
 
-function replace(n::Int,old::Int,new::Int)
+function replace(n::Integer,old::Int,new::Int)
   return undigit(replace(digits(n),old,new));
 end
 
@@ -175,11 +175,11 @@ function select(l::Array{Int,1},idx::AbstractArray{Int,1})
   return l[idx]
 end
 
-function select(n::Int,idx::AbstractArray{Int,1})
+function select(n::Integer,idx::AbstractArray{Int,1})
   return undigit(reverse(reverse(digits(n))[idx]))
 end
 
-function combine(a::Int,b::Int)
+function combine(a::Integer,b::Integer)
   if a == 0
     return b
   end
@@ -188,13 +188,13 @@ function combine(a::Int,b::Int)
 end
 
 combine(a::Array{Int,1},b::Array{Int,1}) = [b;a]
-combine(a::Int,b::Vector{Int}) = combine(a,undigit(b))
-combine(a::Vector{Int},b::Int) = combine(a,digits(b))
+combine(a::Integer,b::Vector{Int}) = combine(a,undigit(b))
+combine(a::Vector{Int},b::Integer) = combine(a,digits(b))
 
 crosssum(l::Array{Int,1}) = sum(l)
-crosssum(n::Int) = sum(digits(n))
+crosssum(n::Integer) = sum(digits(n))
 
-function digitroot(n::Int)
+function digitroot(n::Integer)
   x = abs(n)
   r = x-9*div(x-1,9)
   return copysign(r,n)
