@@ -35,32 +35,33 @@ reversedigits(l::Array{Int,1}) = reverse(l)
 
 reversedigits!(l::Array{Int,1}) = reverse!(l)
 
-# copied from old Base.hist
-function hist!{HT}(h::AbstractArray{HT}, v::AbstractVector, edg::AbstractVector; init::Bool=true)
-    n = length(edg) - 1
-    length(h) == n || throw(DimensionMismatch("length(histogram) must equal length(edges) - 1"))
-    if init
-        fill!(h, zero(HT))
-    end
-    for x in v
-        i = searchsortedfirst(edg, x)-1
-        if 1 <= i <= n
-            h[i] += 1
-        end
-    end
-    edg, h
-end
-
-hist(v::AbstractVector, edg::AbstractVector) = hist!(Array{Int,1}(length(edg)-1), v, edg)
-
 function digithist(l::Array{Int,1})
-  return hist(abs.(l),-0.5:10)[2]
+  h = zeros(Int,10)
+  for i in 1:length(l)
+    d = abs(l[i])
+    h[d+1] = h[d+1] + 1
+  end
+  return h
 end
 
-digithist(n::Integer) = digithist(digits(n))
+function digithist(n::Integer)
+  h = zeros(Int,10)
+  for i=1:ndigits(n)
+    d = abs(rem(n,10))
+    h[d+1] = h[d+1] + 1
+    n = div(n,10)
+  end
+  return h
+end
 
 function isanagram(a::Array{Int,1}, b::Array{Int,1})
-  if sign.(a) != sign.(b)
+  if length(a) != length(b)
+    return false
+  end
+  if length(a) == 0
+    return true
+  end
+  if sign(a[1]) != (sign(b[1]))
     return false
   end
   return digithist(a) == digithist(b)

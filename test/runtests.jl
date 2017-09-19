@@ -21,11 +21,15 @@ lp = digits(p)
 @test undigit(Int[]) == 0
 
 # digithist
+@test length(l) == sum(digithist(l))
+@test ndigits(n) == sum(digithist(n))
 @test digithist(l) == [1,1,1,1,1,1,1,1,1,1]
 @test digithist(n) == [1,1,1,1,1,1,1,1,1,1]
 @test digithist(p) == [1,2,2,2,2,2,2,2,2,2]
 
 # isanagram
+@test isanagram(0,0) == true
+@test isanagram(Int[],Int[]) == true
 @test isanagram(122334,431232) == true
 @test isanagram(digits(122334),digits(431232)) == true
 @test isanagram(122334,433232) == false
