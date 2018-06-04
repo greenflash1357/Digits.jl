@@ -1,6 +1,6 @@
 module Digits
 
-import
+import Base:
   contains,
   startswith,
   endswith,
