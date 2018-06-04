@@ -1,5 +1,13 @@
 module Digits
 
+import
+  contains,
+  startswith,
+  endswith,
+  replace,
+  replace!,
+  select
+
 export
   reversedigits,
   reversedigits!,
