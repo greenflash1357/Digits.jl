@@ -47,7 +47,7 @@ function digithist(l::Array{Int,1})
   h = zeros(Int,10)
   for i in 1:length(l)
     d = abs(l[i])
-    h[d+1] = h[d+1] + 1
+    h[d+1] .= h[d+1] + 1
   end
   return h
 end
@@ -56,7 +56,7 @@ function digithist(n::Integer)
   h = zeros(Int,10)
   for i=1:ndigits(n)
     d = abs(rem(n,10))
-    h[d+1] = h[d+1] + 1
+    h[d+1] .= h[d+1] + 1
     n = div(n,10)
   end
   return h
@@ -178,12 +178,12 @@ end
 crop(n::Integer,i::Int) = undigit(crop(digits(n),i))
 
 function replace!(l::Array{Int,1},idx::AbstractArray{Int,1},d::Array{Int,1})
-  l[idx] = d
+  l[idx] .= d
   return l
 end
 
 function replace!(l::Array{Int,1},old::Int,new::Int)
-  l[l.==old] = new
+  l[l.==old] .= new
   return l
 end
 
