@@ -3,10 +3,7 @@ module Digits
 import Base:
   contains,
   startswith,
-  endswith,
-  replace,
-  replace!,
-  select
+  endswith
 
 export
   reversedigits,
@@ -21,9 +18,6 @@ export
   crop,
   combine,
   crosssum,
-  select,
-  replace,
-  replace!,
   digitroot
 
 
