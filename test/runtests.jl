@@ -1,9 +1,5 @@
 using Digits
-@static if VERSION < v"0.7-dev"
-    @eval using Base.Test
-else
-    @eval using Test
-end
+using Test
 
 # test data
 n = 1234567890

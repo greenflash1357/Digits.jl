@@ -1,7 +1,6 @@
 module Digits
 
 import Base:
-  contains,
   startswith,
   endswith
 
@@ -41,7 +40,7 @@ function digithist(l::Array{Int,1})
   h = zeros(Int,10)
   for i in 1:length(l)
     d = abs(l[i])
-    h[d+1] .= h[d+1] + 1
+    h[d+1] = h[d+1] + 1
   end
   return h
 end
@@ -50,7 +49,7 @@ function digithist(n::Integer)
   h = zeros(Int,10)
   for i=1:ndigits(n)
     d = abs(rem(n,10))
-    h[d+1] .= h[d+1] + 1
+    h[d+1] = h[d+1] + 1
     n = div(n,10)
   end
   return h
